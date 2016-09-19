@@ -11,7 +11,8 @@ import {
   QueryList,
   TemplateRef,
   ViewEncapsulation,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { Md2Transclude } from './transclude';
@@ -349,8 +350,15 @@ export const TABS_DIRECTIVES = [Md2Tabs, Md2Tab, Md2TabLabel];
 export const MD2_TABS_DIRECTIVES: any[] = [Md2Tabs, Md2Tab, Md2TabLabel, Md2Transclude];
 
 @NgModule({
+  declarations: MD2_TABS_DIRECTIVES,
   imports: [CommonModule],
   exports: MD2_TABS_DIRECTIVES,
-  declarations: MD2_TABS_DIRECTIVES,
 })
-export class Md2TabsModule { }
+export class Md2TabsModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2TabsModule,
+      providers: []
+    };
+  }
+}

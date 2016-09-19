@@ -10,6 +10,7 @@ import {
   Provider,
   ViewEncapsulation,
   NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -438,4 +439,11 @@ export const MD2_TAGS_DIRECTIVES = [Md2Tags];
   imports: [CommonModule, FormsModule, Md2AutocompleteModule],
   exports: MD2_TAGS_DIRECTIVES,
 })
-export class Md2TagsModule { }
+export class Md2TagsModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2TagsModule,
+      providers: []
+    };
+  }
+}

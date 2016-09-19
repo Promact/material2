@@ -5,7 +5,8 @@ import {
   Host,
   HostListener,
   OnDestroy,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 
@@ -89,8 +90,15 @@ export class Md2MenuOpen implements OnDestroy {
 export const MD2_MENU_DIRECTIVES: any[] = [Md2MenuNotClosable, Md2Menu, Md2MenuOpen];
 
 @NgModule({
+  declarations: MD2_MENU_DIRECTIVES,
   imports: [CommonModule],
   exports: MD2_MENU_DIRECTIVES,
-  declarations: MD2_MENU_DIRECTIVES,
 })
-export class Md2MenuModule { }
+export class Md2MenuModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2MenuModule,
+      providers: []
+    };
+  }
+}

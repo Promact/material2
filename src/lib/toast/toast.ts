@@ -6,7 +6,8 @@ import {
   Inject,
   ReflectiveInjector,
   ViewContainerRef,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ViewContainerRef_ } from '@angular/core/src/linker/view_container_ref';
@@ -98,12 +99,18 @@ export class Toast {
   constructor(message: string) { this.message = message; }
 }
 
-export const ACCORDION_DIRECTIVES: any[] = [Md2ToastComponent];
+export const MD2_TOAST_DIRECTIVES: any[] = [Md2ToastComponent];
 
 @NgModule({
+  declarations: MD2_TOAST_DIRECTIVES,
   imports: [CommonModule],
-  exports: ACCORDION_DIRECTIVES,
-  declarations: ACCORDION_DIRECTIVES,
-  providers: [Md2Toast]
+  exports: MD2_TOAST_DIRECTIVES,
 })
-export class Md2ToastModule { }
+export class Md2ToastModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2ToastModule,
+      providers: [Md2Toast]
+    };
+  }
+}

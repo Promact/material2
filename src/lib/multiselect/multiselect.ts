@@ -9,7 +9,8 @@ import {
   Output,
   Provider,
   ViewEncapsulation,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -354,8 +355,15 @@ export class Md2Multiselect implements AfterContentInit, ControlValueAccessor {
 export const MD2_MULTISELECT_DIRECTIVES = [Md2Multiselect];
 
 @NgModule({
+  declarations: MD2_MULTISELECT_DIRECTIVES,
   imports: [CommonModule, FormsModule],
   exports: MD2_MULTISELECT_DIRECTIVES,
-  declarations: MD2_MULTISELECT_DIRECTIVES,
 })
-export class Md2MultiselectModule { }
+export class Md2MultiselectModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2MultiselectModule,
+      providers: []
+    };
+  }
+}

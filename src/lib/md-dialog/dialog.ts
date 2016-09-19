@@ -12,7 +12,8 @@ import {
   Directive,
   ViewContainerRef,
   TemplateRef,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Overlay, OVERLAY_CONTAINER_TOKEN} from './overlay/overlay';
@@ -155,9 +156,15 @@ export const MD2_DIALOG_DIRECTIVES: any[] = [Md2Dialog, Md2DialogPortal];
 export const MD2_DIALOG_PROVIDERS: any[] = [Overlay, provide(OVERLAY_CONTAINER_TOKEN, { useValue: createOverlayContainer() })];
 
 @NgModule({
+  declarations: MD2_DIALOG_DIRECTIVES,
   imports: [CommonModule],
   exports: MD2_DIALOG_DIRECTIVES,
-  declarations: MD2_DIALOG_DIRECTIVES,
-  providers: MD2_DIALOG_PROVIDERS,
 })
-export class Md2DialogModule { }
+export class Md2DialogModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2DialogModule,
+      providers: [MD2_DIALOG_PROVIDERS]
+    };
+  }
+}

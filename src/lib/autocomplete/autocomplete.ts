@@ -9,7 +9,8 @@ import {
   Output,
   Provider,
   ViewEncapsulation,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -344,4 +345,11 @@ export const MD2_AUTOCOMPLETE_DIRECTIVES = [Md2Autocomplete, HightlightPipe];
   imports: [CommonModule, FormsModule],
   exports: MD2_AUTOCOMPLETE_DIRECTIVES,
 })
-export class Md2AutocompleteModule { }
+export class Md2AutocompleteModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2AutocompleteModule,
+      providers: []
+    };
+  }
+}

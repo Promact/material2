@@ -9,6 +9,7 @@ import {
   forwardRef,
   ViewEncapsulation,
   NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -688,6 +689,12 @@ export const MD2_DATEPICKER_DIRECTIVES = [Md2Datepicker];
   declarations: MD2_DATEPICKER_DIRECTIVES,
   imports: [CommonModule, FormsModule],
   exports: MD2_DATEPICKER_DIRECTIVES,
-  providers: [MdDateUtil]
 })
-export class Md2DatepickerModule { }
+export class Md2DatepickerModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2DatepickerModule,
+      providers: [MdDateUtil]
+    };
+  }
+}

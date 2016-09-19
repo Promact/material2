@@ -8,7 +8,8 @@ import {
   Provider,
   ReflectiveInjector,
   ViewContainerRef,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ViewContainerRef_ } from '@angular/core/src/linker/view_container_ref';
@@ -96,8 +97,15 @@ export class Md2Tooltip {
 export const MD2_TOOLTIP_DIRECTIVES: any[] = [Md2Tooltip, Md2TooltipComponent];
 
 @NgModule({
+  declarations: MD2_TOOLTIP_DIRECTIVES,
   imports: [CommonModule],
   exports: MD2_TOOLTIP_DIRECTIVES,
-  declarations: MD2_TOOLTIP_DIRECTIVES
 })
-export class Md2TooltipModule { }
+export class Md2TooltipModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2TooltipModule,
+      providers: []
+    };
+  }
+}

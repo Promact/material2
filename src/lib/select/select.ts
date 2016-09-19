@@ -15,7 +15,8 @@ import {
   ViewEncapsulation,
   forwardRef,
   ElementRef,
-  NgModule
+  NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -473,6 +474,12 @@ export const MD2_SELECT_DIRECTIVES = [Md2Select, Md2Option];
   declarations: MD2_SELECT_DIRECTIVES,
   imports: [CommonModule, FormsModule],
   exports: MD2_SELECT_DIRECTIVES,
-  providers: [Md2SelectDispatcher],
 })
-export class Md2SelectModule { }
+export class Md2SelectModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Md2SelectModule,
+      providers: [Md2SelectDispatcher]
+    };
+  }
+}
