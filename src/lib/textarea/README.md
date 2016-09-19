@@ -27,19 +27,11 @@ A simple character counter can be made like the following:
 </md-textarea>
 ```
 
-<img src="https://material.angularjs.org/material2_assets/input/character-count.png">
-
 
 
 ## Divider Color
 
 The divider (line under the `<md-textarea>` content) color can be changed by using the `dividerColor` attribute. A value of `primary` is the default and will correspond to your theme primary color. Alternatively, you can specify `accent` or `warn`.
-
-#### Example
-
-^((please note that this example has been doctored to show the colors; they would normally show only on focus)^)
-
-<img src="https://material.angularjs.org/material2_assets/input/divider-colors.png">
 
 
 
