@@ -71,9 +71,9 @@ describe('MdTextarea', function () {
     fixture.detectChanges();
 
     const componentElement: HTMLElement =
-        fixture.debugElement.query(By.directive(MdTextarea)).nativeElement;
+      fixture.debugElement.query(By.directive(MdTextarea)).nativeElement;
     const inputElement: HTMLInputElement =
-        fixture.debugElement.query(By.css('textarea')).nativeElement;
+      fixture.debugElement.query(By.css('textarea')).nativeElement;
 
     expect(componentElement.id).toBe('test-id');
     expect(inputElement.id).toBeTruthy();
@@ -337,38 +337,38 @@ describe('MdTextarea', function () {
   it('supports a name attribute', () => {
     let fixture = TestBed.createComponent(MdTextareaWithNameTestController);
     const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('textarea'))
-        .nativeElement;
+      .nativeElement;
     fixture.detectChanges();
 
     expect(inputElement.name).toBe('some-name');
   });
 });
 
-@Component({template: `<md-textarea id="test-id"></md-textarea>`})
+@Component({ template: `<md-textarea id="test-id"></md-textarea>` })
 class MdTextareaWithId {
   value: number = 0;
 }
 
-@Component({template: `<md-textarea required placeholder="hello"></md-textarea>`})
+@Component({ template: `<md-textarea required placeholder="hello"></md-textarea>` })
 class MdTextareaPlaceholderRequiredTestComponent {
 }
 
-@Component({template: `<md-textarea> <md-placeholder>{{placeholder}}</md-placeholder> </md-textarea>`})
+@Component({ template: `<md-textarea> <md-placeholder>{{placeholder}}</md-placeholder> </md-textarea>` })
 class MdTextareaPlaceholderElementTestComponent {
   placeholder: string = 'Default Placeholder';
 }
 
-@Component({template: `<md-textarea [placeholder]="placeholder"></md-textarea>`})
+@Component({ template: `<md-textarea [placeholder]="placeholder"></md-textarea>` })
 class MdTextareaPlaceholderAttrTestComponent {
   placeholder: string = '';
 }
 
-@Component({template: `<md-textarea> <md-hint>{{label}}</md-hint> </md-textarea>`})
+@Component({ template: `<md-textarea> <md-hint>{{label}}</md-hint> </md-textarea>` })
 class MdTextareaHintLabel2TestController {
   label: string = '';
 }
 
-@Component({template: `<md-textarea [hintLabel]="label"></md-textarea>`})
+@Component({ template: `<md-textarea [hintLabel]="label"></md-textarea>` })
 class MdTextareaHintLabelTestController {
   label: string = '';
 }
@@ -398,52 +398,54 @@ class MdTextareaInvalidHint2TestController { }
 })
 class MdTextareaInvalidHintTestController { }
 
-@Component({template: `<md-textarea [(ngModel)]="model"></md-textarea>`})
+@Component({ template: `<md-textarea [(ngModel)]="model"></md-textarea>` })
 class MdTextareaBaseTestController {
   model: any = '';
 }
 
-@Component({template:
-    `<md-textarea [aria-label]="ariaLabel" [aria-disabled]="ariaDisabled"></md-textarea>`})
+@Component({
+  template:
+  `<md-textarea [aria-label]="ariaLabel" [aria-disabled]="ariaDisabled"></md-textarea>`
+})
 class MdTextareaAriaTestController {
   ariaLabel: string = 'label';
   ariaDisabled: boolean = true;
 }
 
-@Component({template: `<md-textarea (focus)="onFocus($event)" (blur)="onBlur($event)"></md-textarea>`})
+@Component({ template: `<md-textarea (focus)="onFocus($event)" (blur)="onBlur($event)"></md-textarea>` })
 class MdTextareaWithBlurAndFocusEvents {
-  onBlur(event: FocusEvent) {}
-  onFocus(event: FocusEvent) {}
+  onBlur(event: FocusEvent) { }
+  onFocus(event: FocusEvent) { }
 }
 
-@Component({template: `<md-textarea name="some-name"></md-textarea>`})
+@Component({ template: `<md-textarea name="some-name"></md-textarea>` })
 class MdTextareaWithNameTestController { }
 
-@Component({template: `<md-textarea [autofocus]="autoFocus"></md-textarea>`})
+@Component({ template: `<md-textarea [autofocus]="autoFocus"></md-textarea>` })
 class MdTextareaWithAutofocus { }
 
-@Component({template: `<md-textarea autofocus></md-textarea>`})
+@Component({ template: `<md-textarea autofocus></md-textarea>` })
 class MdTextareaWithUnboundAutofocus { }
 
-@Component({template: `<md-textarea [readonly]="readOnly"></md-textarea>`})
+@Component({ template: `<md-textarea [readonly]="readOnly"></md-textarea>` })
 class MdTextareaWithReadonly { }
 
-@Component({template: `<md-textarea readonly></md-textarea>`})
+@Component({ template: `<md-textarea readonly></md-textarea>` })
 class MdTextareaWithUnboundReadonly { }
 
-@Component({template: `<md-textarea [disabled]="disabled"></md-textarea>`})
+@Component({ template: `<md-textarea [disabled]="disabled"></md-textarea>` })
 class MdTextareaWithDisabled {
   disabled: boolean;
 }
 
-@Component({template: `<md-textarea disabled></md-textarea>`})
+@Component({ template: `<md-textarea disabled></md-textarea>` })
 class MdTextareaWithUnboundDisabled { }
 
-@Component({template: `<md-textarea [required]="required"></md-textarea>`})
+@Component({ template: `<md-textarea [required]="required"></md-textarea>` })
 class MdTextareaWithRequired { }
 
-@Component({template: `<md-textarea required></md-textarea>`})
+@Component({ template: `<md-textarea required></md-textarea>` })
 class MdTextareaWithUnboundRequired { }
 
-@Component({template: `<md-textarea [tabindex]="tabIndex"></md-textarea>`})
+@Component({ template: `<md-textarea [tabindex]="tabIndex"></md-textarea>` })
 class MdTextareaWithTabindex { }

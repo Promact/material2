@@ -23,8 +23,8 @@ import {
   FormsModule,
 } from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {BooleanFieldValue} from 'md2/core/annotations/field-value';
-import {MdError} from 'md2/core/errors/error';
+import {BooleanFieldValue} from '@angular2-material/core/annotations/field-value';
+import {MdError} from '@angular2-material/core/errors/error';
 import {Observable} from 'rxjs/Observable';
 
 const noop = () => { };
@@ -260,12 +260,10 @@ export class MdTextarea implements ControlValueAccessor, AfterContentInit, OnCha
   }
 }
 
-export const MD2_TEXTAREA_DIRECTIVES = [MdPlaceholder, MdTextarea, MdHint];
-
 @NgModule({
-  declarations: MD2_TEXTAREA_DIRECTIVES,
+  declarations: [MdPlaceholder, MdTextarea, MdHint],
   imports: [CommonModule, FormsModule],
-  exports: MD2_TEXTAREA_DIRECTIVES,
+  exports: [MdPlaceholder, MdTextarea, MdHint],
 })
 export class MdTextareaModule {
   static forRoot(): ModuleWithProviders {
