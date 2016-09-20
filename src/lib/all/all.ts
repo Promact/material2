@@ -1,6 +1,7 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {Md2AccordionModule} from 'md2/accordion/accordion';
 import {Md2AutocompleteModule} from 'md2/autocomplete/autocomplete';
+import {Md2ChipsModule} from 'md2/chips/chips';
 import {Md2CollapseModule} from 'md2/collapse/collapse';
 import {Md2ColorpickerModule} from 'md2/colorpicker/colorpicker';
 import {Md2DatepickerModule} from 'md2/datepicker/datepicker';
@@ -16,6 +17,7 @@ import {Md2TooltipModule} from 'md2/md-tooltip/tooltip';
 const MATERIAL_MODULES = [
   Md2AccordionModule,
   Md2AutocompleteModule,
+  Md2ChipsModule,
   Md2CollapseModule,
   Md2ColorpickerModule,
   Md2DatepickerModule,
@@ -33,6 +35,7 @@ const MATERIAL_MODULES = [
   imports: [
     Md2AccordionModule,
     Md2AutocompleteModule,
+	Md2ChipsModule,
     Md2CollapseModule,
     Md2ColorpickerModule,
     Md2DatepickerModule,
