@@ -11,7 +11,7 @@ import {
     NgModule,
     ModuleWithProviders,
 } from '@angular/core';
-import {MdLine, MdLineSetter, MdLineModule} from 'md2/core/line/line';
+import {MdLine, MdLineSetter, MdLineModule} from '@angular2-material/core';
 
 @Directive({
   selector: 'md-divider'

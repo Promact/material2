@@ -10,7 +10,7 @@ Example:
   ```ts
 //app-module.ts
 
-import {Md2Module} from 'md2/all';
+import {Md2Module} from '@angular2-material/all';
 
 @NgModule({
   imports: [
