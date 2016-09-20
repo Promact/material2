@@ -1,5 +1,6 @@
 import {
     NgModule,
+    ModuleWithProviders,
     ContentChild,
     Directive,
     Component,
@@ -239,4 +240,11 @@ export class MdTabGroup {
   exports: [MdTabGroup, MdTabLabel, MdTabContent, MdTab],
   declarations: [MdTabGroup, MdTabLabel, MdTabContent, MdTab, MdInkBar, MdTabLabelWrapper],
 })
-export class MdTabsModule { }
+export class MdTabsModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MdTabsModule,
+      providers: []
+    };
+  }
+}

@@ -37,6 +37,8 @@ System.import(distPath + 'md2/system-config.js').then(function() {
     var testing = providers[0];
     var testingBrowser = providers[1];
 
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
     testing.TestBed.initTestEnvironment(
         testingBrowser.BrowserDynamicTestingModule,
         testingBrowser.platformBrowserDynamicTesting());

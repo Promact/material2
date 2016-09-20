@@ -1,64 +1,101 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
-import {Md2AccordionModule} from 'md2/accordion/accordion';
-import {Md2AutocompleteModule} from 'md2/autocomplete/autocomplete';
-import {Md2CollapseModule} from 'md2/collapse/collapse';
-import {Md2ColorpickerModule} from 'md2/colorpicker/colorpicker';
-import {Md2DatepickerModule} from 'md2/datepicker/datepicker';
-import {Md2DialogModule} from 'md2/md-dialog/dialog';
-import {Md2MenuModule} from 'md2/md-menu/menu';
-import {Md2MultiselectModule} from 'md2/multiselect/multiselect';
-import {Md2SelectModule} from 'md2/select/select';
-import {Md2TabsModule} from 'md2/md-tabs/tabs';
-import {Md2TagsModule} from 'md2/tags/tags';
-import {MdTextareaModule} from 'md2/textarea/textarea';
-import {Md2ToastModule} from 'md2/toast/toast';
-import {Md2TooltipModule} from 'md2/md-tooltip/tooltip';
+import {MdButtonToggleModule} from '@angular2-material/button-toggle';
+import {MdButtonModule} from '@angular2-material/button';
+import {MdCheckboxModule} from '@angular2-material/checkbox';
+import {MdRadioModule} from '@angular2-material/radio';
+import {MdSelectModule} from '@angular2-material/select';
+import {MdSlideToggleModule} from '@angular2-material/slide-toggle';
+import {MdSliderModule} from '@angular2-material/slider';
+import {MdSidenavModule} from '@angular2-material/sidenav';
+import {MdListModule} from '@angular2-material/list';
+import {MdGridListModule} from '@angular2-material/grid-list';
+import {MdCardModule} from '@angular2-material/card';
+import {MdIconModule} from '@angular2-material/icon';
+import {MdProgressCircleModule} from '@angular2-material/progress-circle';
+import {MdProgressBarModule} from '@angular2-material/progress-bar';
+import {MdInputModule} from '@angular2-material/input';
+import {MdTabsModule} from '@angular2-material/tabs';
+import {MdToolbarModule} from '@angular2-material/toolbar';
+import {MdTooltipModule} from '@angular2-material/tooltip';
+import {
+  MdLiveAnnouncer,
+  MdRippleModule,
+  RtlModule,
+  PortalModule,
+  OverlayModule
+} from '@angular2-material/core';
+import {MdMenuModule} from '@angular2-material/menu';
+import {MdDialogModule} from '@angular2-material/dialog';
+
 
 const MATERIAL_MODULES = [
-  Md2AccordionModule,
-  Md2AutocompleteModule,
-  Md2CollapseModule,
-  Md2ColorpickerModule,
-  Md2DatepickerModule,
-  Md2DialogModule,
-  Md2MenuModule,
-  Md2MultiselectModule,
-  Md2SelectModule,
-  Md2TabsModule,
-  Md2TagsModule,
-  MdTextareaModule,
-  Md2ToastModule,
-  Md2TooltipModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdDialogModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdProgressBarModule,
+  MdProgressCircleModule,
+  MdRadioModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,
+  OverlayModule,
+  PortalModule,
+  RtlModule,
 ];
 
 @NgModule({
   imports: [
-    Md2AccordionModule.forRoot(),
-    Md2AutocompleteModule.forRoot(),
-    Md2CollapseModule.forRoot(),
-    Md2ColorpickerModule.forRoot(),
-    Md2DatepickerModule.forRoot(),
-    Md2DialogModule.forRoot(),
-    Md2MenuModule.forRoot(),
-    Md2MultiselectModule.forRoot(),
-    Md2SelectModule.forRoot(),
-    Md2TabsModule.forRoot(),
-    Md2TagsModule.forRoot(),
-    MdTextareaModule.forRoot(),
-    Md2ToastModule.forRoot(),
-    Md2TooltipModule.forRoot(),
+    MdButtonModule.forRoot(),
+    MdCardModule.forRoot(),
+    MdCheckboxModule.forRoot(),
+    MdGridListModule.forRoot(),
+    MdInputModule.forRoot(),
+    MdListModule.forRoot(),
+    MdProgressBarModule.forRoot(),
+    MdProgressCircleModule.forRoot(),
+    MdRippleModule.forRoot(),
+    MdSelectModule.forRoot(),
+    MdSidenavModule.forRoot(),
+    MdTabsModule.forRoot(),
+    MdToolbarModule.forRoot(),
+    PortalModule.forRoot(),
+    RtlModule.forRoot(),
+
+    // These modules include providers.
+    MdButtonToggleModule.forRoot(),
+    MdDialogModule.forRoot(),
+    MdIconModule.forRoot(),
+    MdMenuModule.forRoot(),
+    MdRadioModule.forRoot(),
+    MdSliderModule.forRoot(),
+    MdSlideToggleModule.forRoot(),
+    MdTooltipModule.forRoot(),
+    OverlayModule.forRoot(),
   ],
   exports: MATERIAL_MODULES,
+  providers: [MdLiveAnnouncer]
 })
-export class Md2RootModule { }
+export class MaterialRootModule { }
 
 
 @NgModule({
   imports: MATERIAL_MODULES,
   exports: MATERIAL_MODULES,
 })
-export class Md2Module {
+export class MaterialModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: Md2RootModule };
+    return {ngModule: MaterialRootModule};
   }
 }
