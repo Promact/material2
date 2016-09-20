@@ -15,6 +15,7 @@ import {
   EventEmitter,
   Output,
   NgModule,
+  ModuleWithProviders
 } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR,
@@ -26,7 +27,7 @@ import {BooleanFieldValue} from 'md2/core/annotations/field-value';
 import {MdError} from 'md2/core/errors/error';
 import {Observable} from 'rxjs/Observable';
 
-const noop = () => {};
+const noop = () => { };
 
 export const MD_TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -55,7 +56,7 @@ export class MdTextareaDuplicatedHintError extends MdError {
 @Directive({
   selector: 'md-placeholder'
 })
-export class MdPlaceholder {}
+export class MdPlaceholder { }
 
 /** The hint directive, used to tag content as hint labels (going under the textarea). */
 @Directive({
@@ -80,7 +81,7 @@ export class MdHint {
   templateUrl: 'textarea.html',
   styleUrls: ['textarea.css'],
   providers: [MD_TEXTAREA_CONTROL_VALUE_ACCESSOR],
-  host: {'(click)' : 'focus()'}
+  host: { '(click)': 'focus()' }
 })
 export class MdTextarea implements ControlValueAccessor, AfterContentInit, OnChanges {
   private _focused: boolean = false;
@@ -221,7 +222,7 @@ export class MdTextarea implements ControlValueAccessor, AfterContentInit, OnCha
   }
 
   /** TODO: internal */
-  ngOnChanges(changes: {[key: string]: SimpleChange}) {
+  ngOnChanges(changes: { [key: string]: SimpleChange }) {
     this._validateConstraints();
   }
 
@@ -259,9 +260,18 @@ export class MdTextarea implements ControlValueAccessor, AfterContentInit, OnCha
   }
 }
 
+export const MD2_TEXTAREA_DIRECTIVES = [MdPlaceholder, MdTextarea, MdHint];
+
 @NgModule({
-  declarations: [MdPlaceholder, MdTextarea, MdHint],
+  declarations: MD2_TEXTAREA_DIRECTIVES,
   imports: [CommonModule, FormsModule],
-  exports: [MdPlaceholder, MdTextarea, MdHint],
+  exports: MD2_TEXTAREA_DIRECTIVES,
 })
-export class MdTextareaModule { }
+export class MdTextareaModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MdTextareaModule,
+      providers: []
+    };
+  }
+}

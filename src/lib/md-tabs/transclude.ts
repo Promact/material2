@@ -4,10 +4,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-@Directive({
-  selector: '[md2Transclude]',
-  properties: ['md2Transclude']
-})
+@Directive({ selector: '[md2Transclude]' })
 export class Md2Transclude {
 
   private _md2Transclude: TemplateRef<any>;
